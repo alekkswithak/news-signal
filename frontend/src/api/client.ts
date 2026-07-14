@@ -1,10 +1,16 @@
 import { ArticleSearchResult, AnalyzedArticle } from "../types";
 
+// Relative "/api" paths work locally and behind the Docker/Nginx proxy.
+// On Vercel, the frontend and backend are different domains, so
+// VITE_API_URL points straight at the deployed Render backend.
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
+
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(path, {
+  const res = await fetch(`${API_BASE}${path}`, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
+  
 
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
