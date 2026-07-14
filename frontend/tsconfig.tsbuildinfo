@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/api/client.ts","./src/components/dispatchfeed.tsx","./src/components/searchbar.tsx","./src/components/sentimentpulse.tsx","./src/components/wirelist.tsx"],"version":"5.9.3"}
